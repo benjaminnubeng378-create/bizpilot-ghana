@@ -5,144 +5,631 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#102b65">
-<meta name="description" content="BizPilot Ghana helps small businesses track sales, calculate profit and plan their next steps.">
-<title>BizPilot Ghana | Smart Tools for Small Businesses</title>
+<meta name="description" content="BizPilot Ghana helps small businesses track sales, expenses and profit.">
+<title>BizPilot Ghana | Business Dashboard</title>
+
 <style>
-:root{--navy:#102b65;--blue:#2563eb;--sky:#eff6ff;--ink:#17233d;--muted:#64748b;--line:#e2e8f0;--green:#087f5b;--red:#c24141}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:#f8fafc;line-height:1.6}
-a{color:inherit;text-decoration:none}
-button,input,select,textarea{font:inherit}
-button,.btn{border:0;border-radius:10px;padding:12px 16px;background:var(--blue);color:white;font-weight:700;cursor:pointer;display:inline-block}
-button:hover,.btn:hover{filter:brightness(.94)}
-button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #93c5fd;outline-offset:2px}
-button.secondary,.btn.secondary{background:#e8efff;color:var(--navy)}
-button.danger{background:#fee2e2;color:#991b1b}
-button.small{padding:7px 10px;font-size:.85rem}
-.wrap{width:min(1100px,92%);margin:auto}
-header{background:white;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
-.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand{font-size:1.2rem;font-weight:900;color:var(--navy)}
-.brand span{color:var(--blue)}
-nav{display:flex;flex-wrap:wrap;gap:18px;font-size:.93rem;font-weight:650}
-nav a:hover{color:var(--blue)}
-.hero{color:white;background:linear-gradient(135deg,#102b65,#1d4ed8);padding:72px 0 64px}
-.hero-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:32px;align-items:center}
-.eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:.78rem;font-weight:800}
-.hero h1{font-size:clamp(2.2rem,6vw,4rem);line-height:1.1;margin:12px 0 18px}
-.hero p{max-width:620px;color:#dbeafe;font-size:1.08rem}
-.hero .btn{margin:8px 8px 0 0}
-.hero .btn.secondary{background:white;color:var(--navy)}
-.preview{background:white;color:var(--ink);padding:24px;border-radius:18px;box-shadow:0 20px 55px #081c4c55}
-.preview-row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
-.preview-row:last-child{border:0}
-section{padding:58px 0}
-.section-head{max-width:700px;margin:0 auto 28px;text-align:center}
-.section-head h2{color:var(--navy);font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.2;margin:8px 0}
-.muted{color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.card{background:white;padding:22px;border:1px solid var(--line);border-radius:18px;box-shadow:0 5px 18px #0f172a08}
-.card h3{margin:8px 0;color:var(--navy)}
-.feature-icon{font-size:1.8rem}
-.tools{background:#eff6ff}
-.tool-card{scroll-margin-top:90px}
-label{display:block;font-size:.9rem;font-weight:700;margin:12px 0 5px}
-input,select,textarea{display:block;width:100%;min-width:0;padding:11px 12px;border:1px solid #cbd5e1;border-radius:10px;background:white;color:var(--ink)}
-textarea{resize:vertical}
-.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.form-grid .full{grid-column:1/-1}
-.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0}
-.stat{background:#f1f5f9;padding:14px;border-radius:12px;min-width:0}
-.stat small{color:var(--muted);display:block}
-.stat strong{display:block;font-size:1.05rem;overflow-wrap:anywhere}
-.table-wrap{overflow-x:auto;margin-top:16px}
-table{width:100%;border-collapse:collapse;font-size:.9rem}
-th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
-th{background:#f8fafc}
-.empty{color:var(--muted);text-align:center;padding:20px}
-.result{padding:16px;border-radius:12px;background:var(--sky);margin-top:16px}
-.result strong{color:var(--navy)}
-.progress{height:10px;border-radius:99px;background:#e2e8f0;overflow:hidden;margin:10px 0}
-.progress div{height:100%;width:0;background:var(--blue);transition:width .2s}
-.task{display:flex;align-items:flex-start;gap:10px;border-bottom:1px solid var(--line);padding:12px 0}
-.task input{width:auto;margin-top:6px}
-.task-main{flex:1;min-width:0;overflow-wrap:anywhere}
-.task.done .task-main{text-decoration:line-through;color:var(--muted)}
-.notice{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;padding:12px;border-radius:10px;font-size:.9rem}
-.contact{background:var(--navy);color:white;text-align:center}
-.contact h2{font-size:2rem}
-.contact p{color:#dbeafe}
-footer{background:#081a40;color:#cbd5e1;padding:22px 0;text-align:center;font-size:.9rem}
-@media(max-width:760px){.hero-grid,.grid{grid-template-columns:1fr}.hero{padding:48px 0}nav{gap:10px;font-size:.82rem}.nav{align-items:flex-start;padding:12px 0;flex-direction:column}section{padding:42px 0}}
-@media(max-width:420px){.form-grid,.stat-grid{grid-template-columns:1fr}.hero h1{font-size:2.25rem}.card{padding:17px}}
+:root {
+  --navy: #102b65;
+  --navy2: #183b83;
+  --blue: #3867e8;
+  --green: #087f5b;
+  --red: #d9485f;
+  --bg: #f4f7fc;
+  --white: #ffffff;
+  --text: #17233d;
+  --muted: #718096;
+  --border: #e6ebf3;
+  --radius: 18px;
+  --shadow: 0 5px 22px rgba(16,43,101,.055);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 3px solid #a8c5ff;
+  outline-offset: 2px;
+}
+.app { min-height: 100vh; }
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 240px;
+  padding: 27px 18px;
+  background: var(--navy);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+}
+.brand { display: flex; align-items: center; gap: 11px; margin: 0 0 38px 5px; }
+.brand-icon {
+  width: 43px; height: 43px; border-radius: 13px;
+  display: grid; place-items: center;
+  background: white; color: var(--navy);
+  font-size: 24px; font-weight: 900;
+}
+.brand h2 { font-size: 17px; margin: 0; }
+.brand p { font-size: 11px; margin: 4px 0 0; color: #bdccef; }
+.nav-label { color: #9fb4df; font-size: 10px; letter-spacing: 1.5px; padding: 0 12px; }
+.nav-link {
+  display: flex; align-items: center; gap: 12px;
+  padding: 13px 12px; margin-top: 7px; border-radius: 11px;
+  color: #dce6ff; font-size: 13px; text-decoration: none;
+}
+.nav-link.active, .nav-link:hover { background: #ffffff1c; color: white; }
+.sidebar-note {
+  margin-top: auto; border: 1px solid #ffffff28;
+  border-radius: 13px; padding: 15px; color: #dce6ff; font-size: 12px; line-height: 1.6;
+}
+.sidebar-note strong { display: block; color: white; margin-bottom: 5px; }
+.main { margin-left: 240px; padding: 29px 34px 45px; max-width: 1700px; }
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 28px; }
+.eyebrow { color: var(--muted); font-size: 12px; margin: 0 0 5px; }
+h1 { font-size: clamp(23px, 3vw, 30px); letter-spacing: -1px; margin: 0; }
+.subtitle { color: var(--muted); font-size: 13px; margin: 8px 0 0; }
+.top-actions { display: flex; gap: 10px; align-items: center; }
+.today { background: white; border: 1px solid var(--border); border-radius: 11px; padding: 11px 13px; color: #526079; font-size: 12px; }
+.btn {
+  border: 0; border-radius: 11px; padding: 12px 15px;
+  font-size: 12px; font-weight: 750; display: inline-flex;
+  align-items: center; justify-content: center; gap: 7px;
+}
+.btn-primary { background: var(--blue); color: white; }
+.btn-primary:hover { background: #2855d4; }
+.btn-light { background: white; border: 1px solid var(--border); color: var(--text); }
+.btn-danger { background: #fff0f2; color: var(--red); padding: 8px 10px; }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; margin-bottom: 21px; }
+.stat {
+  background: white; border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 20px; box-shadow: var(--shadow); min-width: 0;
+}
+.stat-top { display: flex; justify-content: space-between; align-items: center; gap: 7px; }
+.stat-label { font-size: 12px; color: var(--muted); }
+.stat-icon { width: 36px; height: 36px; border-radius: 11px; display: grid; place-items: center; font-size: 18px; }
+.stat-value { font-size: clamp(19px, 2.2vw, 27px); font-weight: 800; letter-spacing: -.8px; margin: 15px 0 7px; overflow-wrap: anywhere; }
+.stat-foot { font-size: 11px; color: var(--muted); }
+.green { color: var(--green); }
+.red { color: var(--red); }
+.blue { color: var(--blue); }
+.panels { display: grid; grid-template-columns: minmax(0,1.6fr) minmax(270px,1fr); gap: 19px; margin-bottom: 21px; }
+.panel { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); min-width: 0; }
+.panel-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 22px; }
+.panel-head h2 { font-size: 15px; margin: 0; }
+.panel-head p { font-size: 11px; color: var(--muted); margin: 5px 0 0; }
+.legend { display: flex; gap: 12px; font-size: 11px; color: var(--muted); }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; }
+.chart { height: 175px; display: flex; justify-content: space-around; gap: 12px; align-items: stretch; border-bottom: 1px solid var(--border); padding: 10px 0 0; }
+.chart-day { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 8px; }
+.bar-space { height: 132px; width: 100%; display: flex; align-items: flex-end; justify-content: center; }
+.bar { width: min(32px, 70%); min-height: 3px; border-radius: 7px 7px 2px 2px; background: #6287f0; transition: height .25s; }
+.bar.today-bar { background: var(--navy); }
+.chart-label { font-size: 10px; color: var(--muted); padding-bottom: 10px; }
+.chart-empty { color: var(--muted); font-size: 12px; text-align: center; padding-top: 55px; }
+.quick-form { display: grid; gap: 13px; }
+.field { display: grid; gap: 6px; }
+.field label { font-size: 11px; color: #53627a; font-weight: 700; }
+.field input, .field select, .search-input {
+  width: 100%; min-width: 0; border: 1px solid #dfe5ef; background: #fbfcff;
+  border-radius: 10px; padding: 12px; font-size: 12px; color: var(--text);
+}
+.field input:focus, .field select:focus, .search-input:focus { border-color: var(--blue); outline: 2px solid #dce6ff; }
+.type-toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.type-btn { padding: 11px; border: 1px solid var(--border); background: #fff; border-radius: 10px; font-size: 12px; font-weight: 750; color: var(--muted); }
+.type-btn.selected-sale { background: #eaf8f2; color: var(--green); border-color: #a7e3ca; }
+.type-btn.selected-expense { background: #fff0f2; color: var(--red); border-color: #ffc7cf; }
+.form-message { display: none; font-size: 12px; padding: 10px; border-radius: 9px; }
+.form-message.show { display: block; }
+.form-message.error { background: #fff0f2; color: #ad243a; }
+.form-message.success { background: #eaf8f2; color: #087f5b; }
+.full { width: 100%; }
+.history-panel { margin-bottom: 20px; }
+.history-tools { display: flex; gap: 10px; align-items: center; }
+.search-input { max-width: 225px; }
+.history-table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 590px; }
+th { text-align: left; color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .4px; padding: 13px 10px; border-bottom: 1px solid var(--border); }
+td { padding: 14px 10px; border-bottom: 1px solid #eff2f7; font-size: 12px; }
+tbody tr:last-child td { border-bottom: 0; }
+.tx-title { font-weight: 750; }
+.tx-date { font-size: 10px; color: var(--muted); margin-top: 4px; }
+.pill { border-radius: 20px; padding: 5px 9px; font-size: 10px; font-weight: 750; display: inline-block; }
+.pill-sale { background: #e8f8f0; color: var(--green); }
+.pill-expense { background: #fff0f2; color: var(--red); }
+.empty { text-align: center; padding: 38px 15px; color: var(--muted); font-size: 12px; }
+.footer { text-align: center; color: var(--muted); font-size: 11px; padding: 10px; line-height: 1.7; }
+.toast { position: fixed; bottom: 22px; right: 22px; background: #13264c; color: white; padding: 14px 18px; border-radius: 12px; box-shadow: var(--shadow); font-size: 12px; z-index: 10; display: none; max-width: calc(100vw - 36px); }
+.toast.show { display: block; }
+.small-note { font-size: 10px; color: var(--muted); line-height: 1.6; margin: 0; }
+@media(max-width:1100px) {
+  .main { padding: 25px 22px; }
+  .stats { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .panels { grid-template-columns: 1fr; }
+}
+@media(max-width:700px) {
+  .sidebar { position: static; width: 100%; padding: 13px 16px; }
+  .brand { margin: 0; }
+  .brand-icon { width: 38px; height: 38px; }
+  .sidebar nav, .sidebar-note { display: none; }
+  .main { margin-left: 0; padding: 21px 14px 30px; }
+  .topbar { align-items: flex-start; flex-direction: column; margin-bottom: 20px; }
+  .top-actions { width: 100%; }
+  .top-actions .btn { flex: 1; }
+  .stats { gap: 10px; }
+  .stat { padding: 14px; border-radius: 14px; }
+  .stat-icon { width: 30px; height: 30px; font-size: 15px; }
+  .stat-value { margin: 12px 0 5px; font-size: 20px; }
+  .stat-label { font-size: 11px; }
+  .stat-foot { font-size: 10px; }
+  .panel { padding: 17px; border-radius: 15px; }
+  .history-tools { width: 100%; flex-wrap: wrap; }
+  .search-input { max-width: none; flex: 1; }
+  .panel-head.history-head { align-items: flex-start; flex-direction: column; }
+  .chart { gap: 5px; }
+  .toast { left: 14px; right: 14px; bottom: 14px; text-align: center; }
+}
 </style>
 </head>
+
 <body>
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="#home">BizPilot <span>Ghana</span></a>
-    <nav aria-label="Main navigation">
-      <a href="#features">Features</a>
-      <a href="#tools">Free tools</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">B</div>
+      <div>
+        <h2>BizPilot Ghana</h2>
+        <p>SMART BUSINESS TOOLS</p>
+      </div>
+    </div>
+    <nav>
+      <p class="nav-label">WORKSPACE</p>
+      <a class="nav-link active" href="#dashboard">▦ &nbsp; Dashboard</a>
+      <a class="nav-link" href="#transactions">↕ &nbsp; Transactions</a>
+      <a class="nav-link" href="#add-transaction">＋ &nbsp; Add transaction</a>
+      <a class="nav-link" href="#reports">▤ &nbsp; Reports & export</a>
     </nav>
-  </div>
-</header>
+    <div class="sidebar-note">
+      <strong>🇬🇭 Built for Ghana</strong>
+      Track your business in Ghana cedis. Start small, make informed decisions and grow confidently.
+    </div>
+  </aside>
 
-<main>
-<section class="hero" id="home">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow">Made for small business owners</div>
-      <h1>Run your business with more confidence.</h1>
-      <p>Track daily sales, understand your profit and turn your business ideas into clear action plans — from your phone.</p>
-      <a class="btn secondary" href="#tools">Try the free tools</a>
-      <a class="btn" href="#features">Explore features</a>
-    </div>
-    <div class="preview">
-      <div class="muted">Your business dashboard</div>
-      <h3>Small steps. Better decisions.</h3>
-      <div class="preview-row"><span>Sales tracker</span><strong>Ready</strong></div>
-      <div class="preview-row"><span>Profit calculator</span><strong>Ready</strong></div>
-      <div class="preview-row"><span>Business planner</span><strong>Ready</strong></div>
-      <p class="muted">Start with your own numbers. No demo earnings are claimed.</p>
-    </div>
-  </div>
-</section>
+  <main class="main" id="dashboard">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">BUSINESS OVERVIEW / DASHBOARD</p>
+        <h1>Good business starts with good numbers.</h1>
+        <p class="subtitle">Your sales, expenses and profit — all in one place.</p>
+      </div>
+      <div class="top-actions">
+        <div class="today" id="today-date">Today's overview</div>
+        <button class="btn btn-primary" id="jump-add">＋ Add transaction</button>
+      </div>
+    </header>
 
-<section id="features">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow muted">What you can do</div>
-      <h2>Simple tools for everyday business decisions</h2>
-      <p class="muted">Designed to be easy to use on mobile devices.</p>
-    </div>
-    <div class="grid">
-      <article class="card"><div class="feature-icon">📒</div><h3>Record sales</h3><p class="muted">Keep a local record of sales and expenses and review your totals.</p></article>
-      <article class="card"><div class="feature-icon">🧮</div><h3>Calculate profit</h3><p class="muted">Estimate what remains after product costs and other expenses.</p></article>
-      <article class="card"><div class="feature-icon">🎯</div><h3>Plan your next move</h3><p class="muted">Write down goals, set deadlines and track your progress.</p></article>
-    </div>
-  </div>
-</section>
+    <section class="stats" aria-label="Business summary">
+      <article class="stat">
+        <div class="stat-top">
+          <span class="stat-label">Total sales</span>
+          <span class="stat-icon" style="background:#e8f8f0;color:#087f5b">↗</span>
+        </div>
+        <div class="stat-value green" id="total-sales">GH₵0.00</div>
+        <div class="stat-foot">All recorded sales</div>
+      </article>
+      <article class="stat">
+        <div class="stat-top">
+          <span class="stat-label">Total expenses</span>
+          <span class="stat-icon" style="background:#fff0f2;color:#d9485f">↘</span>
+        </div>
+        <div class="stat-value red" id="total-expenses">GH₵0.00</div>
+        <div class="stat-foot">All recorded expenses</div>
+      </article>
+      <article class="stat">
+        <div class="stat-top">
+          <span class="stat-label">Net balance</span>
+          <span class="stat-icon" style="background:#edf2ff;color:#3867e8">◈</span>
+        </div>
+        <div class="stat-value" id="net-profit">GH₵0.00</div>
+        <div class="stat-foot">Sales minus recorded expenses</div>
+      </article>
+      <article class="stat">
+        <div class="stat-top">
+          <span class="stat-label">Transactions</span>
+          <span class="stat-icon" style="background:#fff4df;color:#b45309">▤</span>
+        </div>
+        <div class="stat-value" id="transaction-count">0</div>
+        <div class="stat-foot">Sales and expenses recorded</div>
+      </article>
+    </section>
 
-<section class="tools" id="tools">
-<div class="wrap">
-  <div class="section-head">
-    <div class="eyebrow muted">Your free business toolkit</div>
-    <h2>Put your numbers to work</h2>
-    <p class="muted">Your records are stored in this browser on this device and are not automatically synced to another phone or cloud account.</p>
-  </div>
-  <div class="grid">
-    <article class="card tool-card">
-      <h3>📒 Sales & Expense Tracker</h3>
-      <p class="muted">Add a sale or expense to your daily records.</p>
-      <form id="entry-form">
-        <div class="form-grid">
-          <div><label for="entry-type">Record type</label>
-            <select id="entry-type"><option value="sale">Sale / income</option><option value="expense">Expense</option></select></div>
-          <div><label for="entry-date">Date</label><input id="entry-date" type="date" required></div>
-          <div class="full"><label for="entry-desc">Description</label><input id="entry-desc" maxlength="100" placeholder="e.g. Bread sales*
-
+    <section class="panels" id="reports">
+      <article class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Sales overview</h2>
+            <p>Sales recorded over the last 7 days</p>
+          </div>
+          <span class="pill pill-sale">7 DAYS</span>
+        </div>
+        <div class="legend">
+          <span><i class="dot" style="background:#6287f0"></i>Sales (GH₵)</span>
+        </div>
+        <div class="chart" id="sales-chart" aria-label="Seven day sales chart"></div>
+        <p class="small-note" style="margin-top:13px">Only transactions dated within the last seven days appear in this chart.</p>
+      </article>
+
+      <article class="panel" id="add-transaction">
+        <div class="panel-head">
+          <div>
+            <h2>Quick transaction</h2>
+            <p>Record a sale or business expense</p>
+          </div>
+          <span style="font-size:22px">✎</span>
+        </div>
+        <form class="quick-form" id="transaction-form">
+          <div class="type-toggle" aria-label="Transaction type">
+            <button type="button" class="type-btn selected-sale" id="sale-type" aria-pressed="true">↗ Sale</button>
+            <button type="button" class="type-btn" id="expense-type" aria-pressed="false">↘ Expense</button>
+          </div>
+          <div class="field">
+            <label for="description">Description</label>
+            <input id="description" maxlength="100" required placeholder="e.g. Bread sales or transport">
+          </div>
+          <div class="field">
+            <label for="amount">Amount (GH₵)</label>
+            <input id="amount" type="number" required min="0.01" max="999999999" step="0.01" inputmode="decimal" placeholder="0.00">
+          </div>
+          <div class="field">
+            <label for="tx-date">Transaction date</label>
+            <input id="tx-date" type="date" required>
+          </div>
+          <div class="form-message" id="form-message" role="status"></div>
+          <button type="submit" class="btn btn-primary full">＋ Save transaction</button>
+          <p class="small-note">Enter the actual sale or expense. Save each transaction only once.</p>
+        </form>
+      </article>
+    </section>
+
+    <section class="panel history-panel" id="transactions">
+      <div class="panel-head history-head">
+        <div>
+          <h2>Recent transactions</h2>
+          <p>Review your records and keep your numbers organised.</p>
+        </div>
+        <div class="history-tools">
+          <input class="search-input" id="search" type="search" placeholder="Search transactions..." aria-label="Search transactions">
+          <button class="btn btn-light" id="export-csv">↓ Export CSV</button>
+        </div>
+      </div>
+      <div class="history-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>DESCRIPTION</th>
+              <th>DATE</th>
+              <th>TYPE</th>
+              <th>AMOUNT</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody id="transaction-list"></tbody>
+        </table>
+        <div class="empty" id="empty-state">
+          <div style="font-size:30px;margin-bottom:8px">▤</div>
+          <strong>No transactions yet</strong>
+          <p>Add your first sale or expense to see your dashboard come alive.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <strong>BizPilot Ghana</strong> · Helping small businesses move forward.<br>
+      Your records are stored locally in this browser. Export backups regularly.
+      <br><span id="storage-status">Local storage enabled when supported.</span>
+    </footer>
+  </main>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  const STORAGE_KEY = "bizpilot_ghana_transactions_v1";
+  const $ = id => document.getElementById(id);
+  let type = "sale";
+  let transactions = [];
+  let storageAvailable = true;
+  let toastTimer;
+
+  function money(value) {
+    return "GH₵" + Number(value).toLocaleString("en-GH", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+  }
+
+  function localDate(date) {
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, "0");
+    const d = String(date.getDate()).padStart(2, "0");
+    return `${y}-${m}-${d}`;
+  }
+
+  function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, ch => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;",
+      '"': "&quot;", "'": "&#39;"
+    })[ch]);
+  }
+
+  function showToast(message) {
+    $("toast").textContent = message;
+    $("toast").classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => $("toast").classList.remove("show"), 3000);
+  }
+
+  function save() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(transactions));
+      storageAvailable = true;
+      $("storage-status").textContent = "Records are saved in this browser.";
+    } catch (error) {
+      storageAvailable = false;
+      $("storage-status").textContent =
+        "Browser storage is unavailable. Export your records before leaving.";
+      showToast("Could not save locally. Export your records if possible.");
+    }
+  }
+
+  function load() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      const parsed = raw ? JSON.parse(raw) : [];
+      if (!Array.isArray(parsed)) throw new Error("Invalid saved data");
+
+      transactions = parsed.filter(t =>
+        t &&
+        typeof t.id === "string" &&
+        typeof t.description === "string" &&
+        (t.type === "sale" || t.type === "expense") &&
+        Number.isFinite(t.amount) && t.amount > 0 &&
+        typeof t.date === "string" &&
+        /^\d{4}-\d{2}-\d{2}$/.test(t.date)
+      );
+    } catch (error) {
+      transactions = [];
+      storageAvailable = false;
+      $("storage-status").textContent =
+        "Could not read saved records. Existing browser data may need recovery.";
+    }
+  }
+
+  function setType(nextType) {
+    type = nextType;
+    $("sale-type").className = "type-btn" + (type === "sale" ? " selected-sale" : "");
+    $("expense-type").className = "type-btn" + (type === "expense" ? " selected-expense" : "");
+    $("sale-type").setAttribute("aria-pressed", String(type === "sale"));
+    $("expense-type").setAttribute("aria-pressed", String(type === "expense"));
+  }
+
+  function renderStats() {
+    const sales = transactions
+      .filter(t => t.type === "sale")
+      .reduce((sum, t) => sum + t.amount, 0);
+    const expenses = transactions
+      .filter(t => t.type === "expense")
+      .reduce((sum, t) => sum + t.amount, 0);
+    const net = sales - expenses;
+
+    $("total-sales").textContent = money(sales);
+    $("total-expenses").textContent = money(expenses);
+    $("net-profit").textContent = money(net);
+    $("net-profit").className = "stat-value " + (net < 0 ? "red" : "green");
+    $("transaction-count").textContent = transactions.length.toLocaleString("en-GH");
+  }
+
+  function renderChart() {
+    const chart = $("sales-chart");
+    chart.replaceChildren();
+
+    const days = [];
+    const now = new Date();
+    for (let i = 6; i >= 0; i--) {
+      const date = new Date(now.getFullYear(), now.getMonth(), now.getDate() - i);
+      days.push({
+        key: localDate(date),
+        label: date.toLocaleDateString("en", { weekday: "short" }),
+        amount: 0,
+        today: i === 0
+      });
+    }
+
+    const totals = new Map(days.map(d => [d.key, d]));
+    transactions.forEach(t => {
+      if (t.type === "sale" && totals.has(t.date)) {
+        totals.get(t.date).amount += t.amount;
+      }
+    });
+
+    const max = Math.max(...days.map(d => d.amount), 0);
+    days.forEach(day => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "chart-day";
+
+      const space = document.createElement("div");
+      space.className = "bar-space";
+
+      const bar = document.createElement("div");
+      bar.className = "bar" + (day.today ? " today-bar" : "");
+      const height = max > 0 ? (day.amount / max) * 100 : 0;
+      bar.style.height = Math.max(day.amount > 0 ? 5 : 2, height) + "%";
+      bar.title = day.label + ": " + money(day.amount);
+      bar.setAttribute("aria-label", day.label + " sales " + money(day.amount));
+      space.appendChild(bar);
+
+      const label = document.createElement("div");
+      label.className = "chart-label";
+      label.textContent = day.label;
+
+      wrapper.append(space, label);
+      chart.appendChild(wrapper);
+    });
+  }
+
+  function renderTransactions() {
+    const tbody = $("transaction-list");
+    tbody.replaceChildren();
+
+    const query = $("search").value.trim().toLowerCase();
+    const filtered = transactions
+      .filter(t => (t.description + " " + t.type + " " + t.date).toLowerCase().includes(query))
+      .sort((a, b) => b.date.localeCompare(a.date) || b.id.localeCompare(a.id));
+
+    $("empty-state").style.display = filtered.length ? "none" : "block";
+
+    filtered.forEach(t => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td><div class="tx-title">${escapeHTML(t.description)}</div>
+            <div class="tx-date">ID: ${escapeHTML(t.id.slice(-6))}</div></td>
+        <td>${escapeHTML(t.date)}</td>
+        <td><span class="pill ${t.type === "sale" ? "pill-sale" : "pill-expense"}">${t.type === "sale" ? "Sale" : "Expense"}</span></td>
+        <td class="${t.type === "sale" ? "green" : "red"}" style="font-weight:800;white-space:nowrap">${t.type === "sale" ? "+" : "−"}${money(t.amount)}</td>
+        <td><button type="button" class="btn btn-danger" data-delete="${escapeHTML(t.id)}" aria-label="Delete ${escapeHTML(t.description)}">Delete</button></td>`;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function render() {
+    renderStats();
+    renderChart();
+    renderTransactions();
+  }
+
+  $("transaction-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const description = $("description").value.trim();
+    const amount = Number($("amount").value);
+    const date = $("tx-date").value;
+    const message = $("form-message");
+
+    message.className = "form-message";
+    message.textContent = "";
+
+    if (!description || description.length > 100) {
+      message.textContent = "Enter a description of up to 100 characters.";
+      message.classList.add("show", "error");
+      return;
+    }
+    if (!Number.isFinite(amount) || amount <= 0 || amount > 999999999) {
+      message.textContent = "Enter a valid amount greater than zero.";
+      message.classList.add("show", "error");
+      return;
+    }
+    if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+      message.textContent = "Choose a valid transaction date.";
+      message.classList.add("show", "error");
+      return;
+    }
+
+    transactions.push({
+      id: Date.now().toString(36) + Math.random().toString(36).slice(2, 9),
+      description: description,
+      amount: Math.round((amount + Number.EPSILON) * 100) / 100,
+      date: date,
+      type: type
+    });
+
+    save();
+    render();
+    $("description").value = "";
+    $("amount").value = "";
+    $("tx-date").value = localDate(new Date());
+
+    message.textContent = "Transaction added successfully.";
+    message.classList.add("show", "success");
+    showToast("Transaction saved.");
+  });
+
+  $("sale-type").addEventListener("click", () => setType("sale"));
+  $("expense-type").addEventListener("click", () => setType("expense"));
+  $("search").addEventListener("input", renderTransactions);
+
+  $("transaction-list").addEventListener("click", function (event) {
+    const button = event.target.closest("[data-delete]");
+    if (!button) return;
+
+    const id = button.getAttribute("data-delete");
+    const item = transactions.find(t => t.id === id);
+    if (!item) return;
+
+    if (confirm('Delete "' + item.description + '"? This cannot be undone.')) {
+      transactions = transactions.filter(t => t.id !== id);
+      save();
+      render();
+      showToast("Transaction deleted.");
+    }
+  });
+
+  $("export-csv").addEventListener("click", function () {
+    if (!transactions.length) {
+      showToast("Add a transaction before exporting.");
+      return;
+    }
+
+    const rows = [
+      ["ID", "Description", "Type", "Amount_GHS", "Date"],
+      ...transactions.map(t => [
+        t.id, t.description, t.type, t.amount.toFixed(2), t.date
+      ])
+    ];
+
+    const csv = rows.map(row => row.map(value => {
+      let cell = String(value);
+      // Prevent spreadsheet formula injection in text fields.
+      if (/^[\s]*[=+\-@]/.test(cell) && !/^\d/.test(cell)) {
+        cell = "'" + cell;
+      }
+      return '"' + cell.replace(/"/g, '""') + '"';
+    }).join(",")).join("\r\n");
+
+    const blob = new Blob(["\uFEFF" + csv], {
+      type: "text/csv;charset=utf-8;"
+    });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "bizpilot-ghana-transactions-" + localDate(new Date()) + ".csv";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    showToast("CSV export prepared.");
+  });
+
+  $("jump-add").addEventListener("click", function () {
+    $("add-transaction").scrollIntoView({ behavior: "smooth", block: "start" });
+    $("description").focus({ preventScroll: true });
+  });
+
+  $("today-date").textContent = new Date().toLocaleDateString("en-GH", {
+    day: "numeric", month: "short", year: "numeric"
+  });
+
+  $("tx-date").value = localDate(new Date());
+
+  load();
+  render();
+})();
+</script>
+</body>
+</html>
