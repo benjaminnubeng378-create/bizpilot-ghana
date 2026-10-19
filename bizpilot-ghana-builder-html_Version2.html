@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BizPilot Ghana | Business Growth for Modern Entrepreneurs</title>
+    <meta
+      name="description"
+      content="BizPilot Ghana helps businesses and entrepreneurs plan smarter, grow faster, and build stronger brands with simple digital tools and expert support."
+    />
+    <style>
+      :root {
+        --bg: #f4f7fb;
+        --panel: #ffffff;
+        --panel-soft: #eef4ff;
+        --primary: #0b6cff;
+        --primary-dark: #074db9;
+        --secondary: #0d1b2a;
+        --muted: #5c6b7c;
+        --accent: #ffb703;
+        --success: #13b76a;
+        --danger: #ef476f;
+        --border: rgba(12, 22, 38, 0.08);
+        --shadow: 0 18px 60px rgba(17, 34, 70, 0.12);
+        --radius: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(180deg, #f6f9ff 0%, #eef4ff 100%);
+        color: var(--secondary);
+        line-height: 1.6;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.82);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+        font-size: 1.08rem;
+        letter-spacing: 0.02em;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        font-weight: 800;
+        color: white;
+        background: linear-gradient(135deg, var(--primary), #5ea9ff);
+        box-shadow: 0 12px 26px rgba(11, 108, 255, 0.28);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        color: var(--muted);
+        font-size: 0.96rem;
+      }
+
+      .nav-links a:hover {
+        color: var(--secondary);
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        font-weight: 700;
+        transition: 0.2s ease;
+        cursor: pointer;
+        border: none;
+      }
+
+      .btn-sm {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+      }
+
+      .btn-md {
+        padding: 14px 22px;
+        font-size: 0.96rem;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: white;
+        box-shadow: 0 16px 30px rgba(11, 108, 255, 0.25);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn-light {
+        background: white;
+        color: var(--secondary);
+        border: 1px solid var(--border);
+      }
+
+      .hero {
+        padding: 76px 0 40px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: center;
+        gap: 48px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(11, 108, 255, 0.08);
+        color: var(--primary-dark);
+        font-weight: 700;
+        padding: 9px 15px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--success);
+        box-shadow: 0 0 0 5px rgba(19, 183, 106, 0.12);
+      }
+
+      h1 {
+        font-size: clamp(2.6rem, 6vw, 4.4rem);
+        line-height: 1.06;
+        margin: 18px 0 18px;
+        letter-spacing: -0.06em;
+      }
+
+      .lead {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--muted);
+        max-width: 640px;
+      }
+
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 26px;
+      }
+
+      .trust-row {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+        color: var(--muted);
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .mini-avatars {
+        display: flex;
+        align-items: center;
+      }
+
+      .mini-avatars span {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 2px solid white;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(200deg, #ffc857, #ff8a00);
+        color: white;
+        margin-left: -8px;
+        font-size: 0.72rem;
+        font-weight: 700;
+      }
+
+      .mini-avatars span:first-child {
+        margin-left: 0;
+      }
+
+      .mini-avatars span:nth-child(2) {
+        background: linear-gradient(200deg, #7bdff2, #1c9bd6);
+      }
+
+      .mini-avatars span:nth-child(3) {
+        background: linear-gradient(200deg, #8fd14f, #3f9b43);
+      }
+
+      .hero-visual {
+        position: relative;
+        display: grid;
+        place-items: center;
+      }
+
+      .dashboard {
+        position: relative;
+        width: min(100%, 540px);
+        background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        box-shadow: var(--shadow);
+        padding: 24px;
+      }
+
+      .dashboard-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 18px;
+      }
+
+      .window-dots {
+        display: flex;
+        gap: 8px;
+      }
+
+      .window-dots span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .window-dots span:nth-child(1) {
+        background: #ff5f57;
+      }
+
+      .window-dots span:nth-child(2) {
+        background: #febc2e;
+      }
+
+      .window-dots span:nth-child(3) {
+        background: #28c840;
+      }
+
+      .chip {
+        background: rgba(11, 108, 255, 0.08);
+        color: var(--primary-dark);
+        border-radius: 999px;
+        padding: 7px 10px;
+        font-weight: 700;
+        font-size: 0.78rem;
+      }
+
+      .metric-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .metric-box {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 16px 14px;
+      }
+
+      .metric-box small {
+        display: block;
+        color: var(--muted);
+        margin-bottom: 10px;
+      }
+
+      .metric-box strong {
+        font-size: clamp(1.3rem, 3vw, 2rem);
+        letter-spacing: -0.05em;
+      }
+
+      .bar-chart {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 18px;
+        margin-top: 18px;
+      }
+
+      .bar-chart .bars {
+        display: flex;
+        align-items: end;
+        gap: 12px;
+        height: 120px;
+        margin-top: 16px;
+      }
+
+      .bar-chart .bars span {
+        display: block;
+        width: 100%;
+        border-radius: 12px 12px 0 0;
+        background: linear-gradient(180deg, #8fc3ff, var(--primary));
+      }
+
+      .overlay-card {
+        position: absolute;
+        right: -16px;
+        bottom: 26px;
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        box-shadow: 0 18px 50px rgba(70, 93, 140, 0.15);
+        padding: 16px 18px;
+        min-width: 190px;
+      }
+
+      .overlay-card .up {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      .ring {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: conic-gradient(var(--success) 0 72%, #e7f9f0 72% 100%);
+        margin-top: 12px;
+      }
+
+      .ring::before {
+        content: "72%";
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-size: 0.75rem;
+        font-weight: 800;
+        background: white;
+        color: var(--secondary);
+      }
+
+      .logos {
+        padding: 28px 0 12px;
+      }
+
+      .logo-row {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 18px;
+        align-items: center;
+      }
+
+      .logo {
+        display: grid;
+        place-items: center;
+        padding: 16px 18px;
+        background: rgba(255, 255, 255, 0.6);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        color: var(--muted);
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.72rem;
+      }
+
+      .section {
+        padding: 90px 0;
+      }
+
+      .section-heading {
+        max-width: 700px;
+        margin-bottom: 32px;
+      }
+
+      .section-heading h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.12;
+        margin: 10px 0;
+        letter-spacing: -0.05em;
+      }
+
+      .section-heading p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.03rem;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .feature-card {
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px 20px;
+        box-shadow: 0 10px 28px rgba(17, 34, 70, 0.04);
+      }
+
+      .icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        font-size: 1.4rem;
+        margin-bottom: 16px;
+        background: linear-gradient(135deg, rgba(11, 108, 255, 0.12), rgba(94, 169, 255, 0.2));
+        color: var(--primary-dark);
+      }
+
+      .feature-card h3 {
+        margin: 0 0 12px;
+        font-size: 1.18rem;
+      }
+
+      .feature-card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .stack-list {
+        display: grid;
+        gap: 18px;
+      }
+
+      .stack-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 18px 18px;
+      }
+
+      .check {
+        flex-shrink: 0;
+        width: 30px;
+        height: 30px;
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        background: rgba(19, 183, 106, 0.12);
+        color: var(--success);
+        font-weight: 900;
+      }
+
+      .stack-item h4 {
+        margin: 0 0 4px;
+        font-size: 1.05rem;
+      }
+
+      .stack-item p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.96rem;
+      }
+
+      .panel {
+        background: linear-gradient(180deg, #0d1b2a 0%, #152944 100%);
+        border-radius: 28px;
+        padding: 24px;
+        color: white;
+        box-shadow: var(--shadow);
+      }
+
+      .panel-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      .panel-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.08);
+        padding: 8px 12px;
+        border-radius: 999px;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+
+      .panel .score {
+        font-size: 2.8rem;
+        font-weight: 800;
+        letter-spacing: -0.06em;
+      }
+
+      .small-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .small-card {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 15px;
+        padding: 14px 12px;
+      }
+
+      .small-card .label {
+        color: rgba(255, 255, 255, 0.68);
+        font-size: 0.78rem;
+      }
+
+      .small-card .value {
+        display: block;
+        font-size: 1.2rem;
+        font-weight: 800;
+        margin-top: 8px;
+      }
+
+      .stats-band {
+        padding: 0 0 80px;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px;
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 36px 28px;
+        box-shadow: 0 12px 28px rgba(17, 34, 70, 0.05);
+      }
+
+      .stat {
+        text-align: center;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        letter-spacing: -0.08em;
+      }
+
+      .stat span {
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .plans {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .pricing-card {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 24px 20px;
+        position: relative;
+      }
+
+      .pricing-card.featured {
+        background: linear-gradient(180deg, #0b6cff 0%, #0d56d4 100%);
+        color: white;
+        transform: translateY(-8px);
+        box-shadow: 0 20px 48px rgba(11, 108, 255, 0.28);
+      }
+
+      .pricing-card.featured p,
+      .pricing-card.featured li,
+      .pricing-card.featured .meta {
+        color: rgba(255, 255, 255, 0.86);
+      }
+
+      .pricing-card .badge {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        background: rgba(255, 183, 3, 0.15);
+        color: var(--accent);
+        font-weight: 800;
+        padding: 8px 10px;
+        border-radius: 999px;
+        font-size: 0.72rem;
+      }
+
+      .pricing-card.featured .badge {
+        background: rgba(255, 255, 255, 0.14);
+        color: white;
+      }
+
+      .pricing-card h3 {
+        margin: 12px 0 8px;
+        font-size: 1.4rem;
+      }
+
+      .meta {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .price {
+        margin: 18px 0 20px;
+        display: flex;
+        align-items: end;
+        gap: 4px;
+      }
+
+      .price strong {
+        font-size: 2.6rem;
+        letter-spacing: -0.07em;
+      }
+
+      .price span {
+        font-size: 0.95rem;
+        color: inherit;
+        opacity: 0.8;
+      }
+
+      .pricing-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 10px;
+      }
+
+      .pricing-card li {
+        color: var(--muted);
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .pricing-card li::before {
+        content: "✓";
+        color: var(--success);
+        font-weight: 900;
+      }
+
+      .pricing-card.featured li::before {
+        color: white;
+      }
+
+      .pricing-card .btn {
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .testimonials {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .quote {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        padding: 24px 20px;
+      }
+
+      .stars {
+        color: var(--accent);
+        letter-spacing: 0.15em;
+        font-size: 0.95rem;
+      }
+
+      .quote p {
+        font-size: 1rem;
+        color: var(--secondary);
+        margin: 16px 0 20px;
+        line-height: 1.8;
+      }
+
+      .person {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, var(--primary), #9dc6ff);
+        color: white;
+        font-weight: 800;
+      }
+
+      .person strong {
+        display: block;
+      }
+
+      .person small {
+        color: var(--muted);
+      }
+
+      .cta {
+        background: linear-gradient(135deg, #eef5ff 0%, #dfeeff 100%);
+        border: 1px solid rgba(11, 108, 255, 0.12);
+        border-radius: 28px;
+        padding: clamp(28px, 4vw, 46px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .cta h3 {
+        margin: 0 0 8px;
+        font-size: clamp(1.8rem, 3vw, 2.6rem);
+        letter-spacing: -0.05em;
+      }
+
+      .cta p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      footer {
+        padding: 30px 0 50px;
+        color: var(--muted);
+      }
+
+      .footer-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding-top: 18px;
+        border-top: 1px solid var(--border);
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 980px) {
+        .hero-grid,
+        .split,
+        .plans,
+        .testimonials {
+          grid-template-columns: 1fr;
+        }
+
+        .features-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .cta {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .features-grid,
+        .stats,
+        .logo-row,
+        .metric-grid,
+        .small-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .nav-actions {
+          display: none;
+        }
+
+        .dashboard {
+          padding: 18px;
+        }
+
+        .overlay-card {
+          position: static;
+          margin-top: 18px;
+        }
+
+        .section {
+          padding: 72px 0;
+        }
+
+        .footer-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand">
+          <div class="brand-mark">B</div>
+          <span>BizPilot Ghana</span>
+        </div>
+
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#solutions">Solutions</a>
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="btn btn-sm btn-light" href="#pricing">See Plans</a>
+          <a class="btn btn-sm btn-primary" href="#contact">Book a Demo</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">Built for Ghanaian growth-minded businesses</div>
+            <h1>Turn business ideas into steady momentum.</h1>
+            <p class="lead">
+              From startups to growing SMEs, BizPilot Ghana gives entrepreneurs the
+              tools, strategy, and operational clarity to plan better, brand stronger,
+              and scale smarter.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-md btn-primary" href="#contact">Start your growth plan</a>
+              <a class="btn btn-md btn-light" href="#solutions">Explore solutions</a>
+            </div>
+
+            <div class="trust-row">
+              <div class="mini-avatars" aria-label="happy clients">
+                <span>AS</span>
+                <span>MK</span>
+                <span>EA</span>
+              </div>
+              <span>Trusted by 1,200+ founders and SMEs</span>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="BizPilot dashboard preview">
+            <div class="dashboard">
+              <div class="dashboard-header">
+                <div class="window-dots">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="chip">Growth dashboard</div>
+              </div>
+
+              <div class="metric-grid">
+                <div class="metric-box">
+                  <small>Monthly revenue</small>
+                  <strong>GHS 64.2K</strong>
+                </div>
+                <div class="metric-box">
+                  <small>New leads</small>
+                  <strong>1,284</strong>
+                </div>
+                <div class="metric-box">
+                  <small>Conversion</small>
+                  <strong>21.6%</strong>
+                </div>
+              </div>
+
+              <div class="bar-chart">
+                <strong>Sales momentum</strong>
+                <div class="bars" aria-hidden="true">
+                  <span style="height: 42%;"></span>
+                  <span style="height: 56%;"></span>
+                  <span style="height: 65%;"></span>
+                  <span style="height: 83%;"></span>
+                  <span style="height: 92%;"></span>
+                  <span style="height: 74%;"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="overlay-card">
+              <div class="up">
+                <span>Business health</span>
+                <span style="color: var(--success); font-weight: 700;">+18.4%</span>
+              </div>
+              <div class="ring"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="logos">
+        <div class="container">
+          <div class="logo-row">
+            <div class="logo">Accra</div>
+            <div class="logo">Kumasi</div>
+            <div class="logo">TradeHub</div>
+            <div class="logo">Niche</div>
+            <div class="logo">Makola</div>
+            <div class="logo">Elevate</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow">Why business owners choose us</div>
+            <h2>Everything you need to scale with confidence.</h2>
+            <p>
+              BizPilot brings planning, marketing, branding, and operational insight
+              into one simple platform for entrepreneurs who want clarity and traction.
+            </p>
+          </div>
+
+          <div class="features-grid">
+            <article class="feature-card">
+              <div class="icon">📈</div>
+              <h3>Growth strategy</h3>
+              <p>
+                Build practical roadmaps, sales plans, and performance goals aligned
+                with your business model.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <div class="icon">🎯</div>
+              <h3>Brand positioning</h3>
+              <p>
+                Sharpen your message, attract the right market, and create a stronger
+                local presence that converts.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <div class="icon">🧩</div>
+              <h3>Operations support</h3>
+              <p>
+                Improve workflows, team coordination, and delivery systems so you can
+                serve customers better without stress.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <div class="icon">📊</div>
+              <h3>Smart reporting</h3>
+              <p>
+                Track progress with clear metrics and dashboards that show what is working,
+                what needs attention, and where to focus next.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="solutions" class="section">
+        <div class="container split">
+          <div>
+            <div class="section-heading" style="margin-bottom: 24px;">
+              <div class="eyebrow">Business solutions that fit real growth</div>
+              <h2>Designed for the pace and realities of modern Ghanaian business.</h2>
+            </div>
+
+            <div class="stack-list">
+              <div class="stack-item">
+                <div class="check">✓</div>
+                <div>
+                  <h4>Startup launch support</h4>
+                  <p>Validate the idea, define your offer, and turn your early traction into a stronger market entry plan.</p>
+                </div>
+              </div>
+
+              <div class="stack-item">
+                <div class="check">✓</div>
+                <div>
+                  <h4>SME operational strategy</h4>
+                  <p>Refine systems, improve accountability, and create efficient execution plans that support sustainable scale.</p>
+                </div>
+              </div>
+
+              <div class="stack-item">
+                <div class="check">✓</div>
+                <div>
+                  <h4>Digital visibility & brand growth</h4>
+                  <p>Build a compelling identity, improve customer trust, and increase your digital reach across channels.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-top">
+              <div class="panel-tag">Performance snapshot</div>
+              <div class="chip" style="background: rgba(255,255,255,0.09); color: white;">+32.7% QoQ</div>
+            </div>
+
+            <div class="score">94</div>
+            <p style="color: rgba(255,255,255,0.7); margin: 8px 0 0;">
+              Average business readiness score across clients after their first 90 days.
+            </p>
+
+            <div class="small-grid">
+              <div class="small-card">
+                <span class="label">Lead velocity</span>
+                <span class="value">+48%</span>
+              </div>
+              <div class="small-card">
+                <span class="label">Customer retention</span>
+                <span class="value">+22%</span>
+              </div>
+              <div class="small-card">
+                <span class="label">Marketing ROI</span>
+                <span class="value">3.8x</span>
+              </div>
+              <div class="small-card">
+                <span class="label">Process efficiency</span>
+                <span class="value">+31%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-band">
+        <div class="container">
+          <div class="stats">
+            <div class="stat">
+              <strong>1.2K+</strong>
+              <span>Businesses supported</span>
+            </div>
+            <div class="stat">
+              <strong>87%</strong>
+              <span>Client retention</span>
+            </div>
+            <div class="stat">
+              <strong>3x</strong>
+              <span>Average growth in 6 months</span>
+            </div>
+            <div class="stat">
+              <strong>14</strong>
+              <span>Regional growth partners</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow">Flexible pricing</div>
+            <h2>Choose the plan that matches your stage.</h2>
+            <p>From early business setup to multi-branch scaling, BizPilot adapts to the level of support you need.</p>
+          </div>
+
+          <div class="plans">
+            <article class="pricing-card">
+              <div class="badge">Starter</div>
+              <h3>Launch</h3>
+              <div class="meta">Best for new entrepreneurs</div>
+
+              <div class="price">
+                <strong>GHS 350</strong>
+                <span>/month</span>
+              </div>
+
+              <ul>
+                <li>Business strategy session</li>
+                <li>Offer and positioning review</li>
+                <li>Basic growth roadmap</li>
+                <li>Monthly progress check-in</li>
+              </ul>
+
+              <a class="btn btn-md btn-light" href="#contact">Get started</a>
+            </article>
+
+            <article class="pricing-card featured">
+              <div class="badge">Most popular</div>
+              <h3>Growth</h3>
+              <div class="meta">For businesses ready to scale</div>
+
+              <div class="price">
+                <strong>GHS 850</strong>
+                <span>/month</span>
+              </div>
+
+              <ul>
+                <li>Full strategy & planning support</li>
+                <li>Brand and digital visibility audit</li>
+                <li>Performance dashboard access</li>
+                <li>Priority support and reviews</li>
+              </ul>
+
+              <a class="btn btn-md btn-primary" href="#contact" style="background: white; color: var(--primary-dark);">Choose Growth</a>
+            </article>
+
+            <article class="pricing-card">
+              <div class="badge">Scale</div>
+              <h3>Executive</h3>
+              <div class="meta">For multi-unit or established teams</div>
+
+              <div class="price">
+                <strong>GHS 1,600</strong>
+                <span>/month</span>
+              </div>
+
+              <ul>
+                <li>Advanced growth advisory</li>
+                <li>Operations optimization planning</li>
+                <li>Custom reporting and KPI framework</li>
+                <li>Dedicated business strategist</li>
+              </ul>
+
+              <a class="btn btn-md btn-light" href="#contact">Talk to us</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="reviews" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow">Client feedback</div>
+            <h2>What businesses say after partnering with BizPilot.</h2>
+          </div>
+
+          <div class="testimonials">
+            <article class="quote">
+              <div class="stars">★★★★★</div>
+              <p>
+                “BizPilot helped us turn uncertainty into a clear action plan. We improved
+                our sales process and gained more traction in just a few weeks.”
+              </p>
+
+              <div class="person">
+                <div class="avatar">A</div>
+                <div>
+                  <strong>Ama S.</strong>
+                  <small>Founder, Accra Fashion House</small>
+                </div>
+              </div>
+            </article>
+
+            <article class="quote">
+              <div class="stars">★★★★★</div>
+              <p>
+                “Their operational insights were exactly what our team needed. We became
+                more organized, more focused, and finally measurable in our growth.”
+              </p>
+
+              <div class="person">
+                <div class="avatar">K</div>
+                <div>
+                  <strong>Kofi M.</strong>
+                  <small>Director, TransitPro Logistics</small>
+                </div>
+              </div>
+            </article>
+
+            <article class="quote">
+              <div class="stars">★★★★★</div>
+              <p>
+                “We were struggling to explain our value. BizPilot helped us refine our
+                positioning, improve customer messaging, and increase qualified leads.”
+              </p>
+
+              <div class="person">
+                <div class="avatar">E</div>
+                <div>
+                  <strong>Efua T.</strong>
+                  <small>Co-founder, BrightNest Studio</small>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container">
+          <div class="cta">
+            <div>
+              <h3>Ready to build your next growth chapter?</h3>
+              <p>Let’s create a practical business plan that matches your goals and market.</p>
+            </div>
+
+            <a class="btn btn-md btn-primary" href="mailto:hello@bizpilotghana.com">Book a consultation</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <div class="brand" style="font-size: 1rem;">
+          <div class="brand-mark">B</div>
+          <span>BizPilot Ghana</span>
+        </div>
+
+        <div class="footer-links">
+          <a href="#solutions">Solutions</a>
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#reviews">Reviews</a>
+          <a href="mailto:hello@bizpilotghana.com">hello@bizpilotghana.com</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
