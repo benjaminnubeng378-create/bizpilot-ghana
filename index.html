@@ -1,1 +1,148 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#102b65">
+<meta name="description" content="BizPilot Ghana helps small businesses track sales, calculate profit and plan their next steps.">
+<title>BizPilot Ghana | Smart Tools for Small Businesses</title>
+<style>
+:root{--navy:#102b65;--blue:#2563eb;--sky:#eff6ff;--ink:#17233d;--muted:#64748b;--line:#e2e8f0;--green:#087f5b;--red:#c24141}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:#f8fafc;line-height:1.6}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+button,.btn{border:0;border-radius:10px;padding:12px 16px;background:var(--blue);color:white;font-weight:700;cursor:pointer;display:inline-block}
+button:hover,.btn:hover{filter:brightness(.94)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #93c5fd;outline-offset:2px}
+button.secondary,.btn.secondary{background:#e8efff;color:var(--navy)}
+button.danger{background:#fee2e2;color:#991b1b}
+button.small{padding:7px 10px;font-size:.85rem}
+.wrap{width:min(1100px,92%);margin:auto}
+header{background:white;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-size:1.2rem;font-weight:900;color:var(--navy)}
+.brand span{color:var(--blue)}
+nav{display:flex;flex-wrap:wrap;gap:18px;font-size:.93rem;font-weight:650}
+nav a:hover{color:var(--blue)}
+.hero{color:white;background:linear-gradient(135deg,#102b65,#1d4ed8);padding:72px 0 64px}
+.hero-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:32px;align-items:center}
+.eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:.78rem;font-weight:800}
+.hero h1{font-size:clamp(2.2rem,6vw,4rem);line-height:1.1;margin:12px 0 18px}
+.hero p{max-width:620px;color:#dbeafe;font-size:1.08rem}
+.hero .btn{margin:8px 8px 0 0}
+.hero .btn.secondary{background:white;color:var(--navy)}
+.preview{background:white;color:var(--ink);padding:24px;border-radius:18px;box-shadow:0 20px 55px #081c4c55}
+.preview-row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.preview-row:last-child{border:0}
+section{padding:58px 0}
+.section-head{max-width:700px;margin:0 auto 28px;text-align:center}
+.section-head h2{color:var(--navy);font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.2;margin:8px 0}
+.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{background:white;padding:22px;border:1px solid var(--line);border-radius:18px;box-shadow:0 5px 18px #0f172a08}
+.card h3{margin:8px 0;color:var(--navy)}
+.feature-icon{font-size:1.8rem}
+.tools{background:#eff6ff}
+.tool-card{scroll-margin-top:90px}
+label{display:block;font-size:.9rem;font-weight:700;margin:12px 0 5px}
+input,select,textarea{display:block;width:100%;min-width:0;padding:11px 12px;border:1px solid #cbd5e1;border-radius:10px;background:white;color:var(--ink)}
+textarea{resize:vertical}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.form-grid .full{grid-column:1/-1}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.stat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0}
+.stat{background:#f1f5f9;padding:14px;border-radius:12px;min-width:0}
+.stat small{color:var(--muted);display:block}
+.stat strong{display:block;font-size:1.05rem;overflow-wrap:anywhere}
+.table-wrap{overflow-x:auto;margin-top:16px}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+th{background:#f8fafc}
+.empty{color:var(--muted);text-align:center;padding:20px}
+.result{padding:16px;border-radius:12px;background:var(--sky);margin-top:16px}
+.result strong{color:var(--navy)}
+.progress{height:10px;border-radius:99px;background:#e2e8f0;overflow:hidden;margin:10px 0}
+.progress div{height:100%;width:0;background:var(--blue);transition:width .2s}
+.task{display:flex;align-items:flex-start;gap:10px;border-bottom:1px solid var(--line);padding:12px 0}
+.task input{width:auto;margin-top:6px}
+.task-main{flex:1;min-width:0;overflow-wrap:anywhere}
+.task.done .task-main{text-decoration:line-through;color:var(--muted)}
+.notice{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;padding:12px;border-radius:10px;font-size:.9rem}
+.contact{background:var(--navy);color:white;text-align:center}
+.contact h2{font-size:2rem}
+.contact p{color:#dbeafe}
+footer{background:#081a40;color:#cbd5e1;padding:22px 0;text-align:center;font-size:.9rem}
+@media(max-width:760px){.hero-grid,.grid{grid-template-columns:1fr}.hero{padding:48px 0}nav{gap:10px;font-size:.82rem}.nav{align-items:flex-start;padding:12px 0;flex-direction:column}section{padding:42px 0}}
+@media(max-width:420px){.form-grid,.stat-grid{grid-template-columns:1fr}.hero h1{font-size:2.25rem}.card{padding:17px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home">BizPilot <span>Ghana</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#features">Features</a>
+      <a href="#tools">Free tools</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Made for small business owners</div>
+      <h1>Run your business with more confidence.</h1>
+      <p>Track daily sales, understand your profit and turn your business ideas into clear action plans — from your phone.</p>
+      <a class="btn secondary" href="#tools">Try the free tools</a>
+      <a class="btn" href="#features">Explore features</a>
+    </div>
+    <div class="preview">
+      <div class="muted">Your business dashboard</div>
+      <h3>Small steps. Better decisions.</h3>
+      <div class="preview-row"><span>Sales tracker</span><strong>Ready</strong></div>
+      <div class="preview-row"><span>Profit calculator</span><strong>Ready</strong></div>
+      <div class="preview-row"><span>Business planner</span><strong>Ready</strong></div>
+      <p class="muted">Start with your own numbers. No demo earnings are claimed.</p>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow muted">What you can do</div>
+      <h2>Simple tools for everyday business decisions</h2>
+      <p class="muted">Designed to be easy to use on mobile devices.</p>
+    </div>
+    <div class="grid">
+      <article class="card"><div class="feature-icon">📒</div><h3>Record sales</h3><p class="muted">Keep a local record of sales and expenses and review your totals.</p></article>
+      <article class="card"><div class="feature-icon">🧮</div><h3>Calculate profit</h3><p class="muted">Estimate what remains after product costs and other expenses.</p></article>
+      <article class="card"><div class="feature-icon">🎯</div><h3>Plan your next move</h3><p class="muted">Write down goals, set deadlines and track your progress.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="tools" id="tools">
+<div class="wrap">
+  <div class="section-head">
+    <div class="eyebrow muted">Your free business toolkit</div>
+    <h2>Put your numbers to work</h2>
+    <p class="muted">Your records are stored in this browser on this device and are not automatically synced to another phone or cloud account.</p>
+  </div>
+  <div class="grid">
+    <article class="card tool-card">
+      <h3>📒 Sales & Expense Tracker</h3>
+      <p class="muted">Add a sale or expense to your daily records.</p>
+      <form id="entry-form">
+        <div class="form-grid">
+          <div><label for="entry-type">Record type</label>
+            <select id="entry-type"><option value="sale">Sale / income</option><option value="expense">Expense</option></select></div>
+          <div><label for="entry-date">Date</label><input id="entry-date" type="date" required></div>
+          <div class="full"><label for="entry-desc">Description</label><input id="entry-desc" maxlength="100" placeholder="e.g. Bread sales*
+
